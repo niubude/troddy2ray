@@ -57,10 +57,10 @@
         "tls": {
             "automation": {
                 "policies": [{
-                    "issuer": {
+                    "issuers": [{
                         "email": "your@email.com",
                         "module": "acme"
-                    }
+                    }]
                 }]
             }
         }

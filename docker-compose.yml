@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   caddy:
-    image: caddy:alpine
+    image: caddy:2.4.6-alpine
     container_name: caddy
     restart: always
     volumes:
@@ -18,11 +18,11 @@ services:
       - free-net
     command: caddy run --config=/etc/caddy/caddy.json
   trojan:
-    image: wizcas/trojan
+    image: teddysun/trojan-go:0.10.6
     container_name: trojan
     restart: always
     volumes:
-      - ./trojan/config:/etc/config
+      - ./trojan/config:/etc/trojan-go
       - ./ssl:/ssl
     ports:
       - "443:443"
@@ -32,7 +32,7 @@ services:
       - free-net
   v2:
     container_name: v2
-    image: v2fly/v2fly-core
+    image: v2fly/v2fly-core:v4.44.0
     restart: always
     volumes:
       - ./v2configs:/etc/v2ray/conf
